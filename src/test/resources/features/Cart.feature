@@ -70,9 +70,7 @@ Scenario: Update Cart with Invalid Data
   Then I validate carts status "400"
 
 
-# =========================================
-# DELETE → SCENARIO OUTLINE
-# =========================================
+
 
 Scenario Outline: Delete Cart API
   Given I set carts request "DELETE" "/carts/<id>"

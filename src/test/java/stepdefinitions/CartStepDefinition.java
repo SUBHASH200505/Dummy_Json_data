@@ -137,10 +137,8 @@ public class CartStepDefinition {
         Assert.assertTrue(response.asString().contains(text),
                 "Response does not contain: " + text);
     }
+    
 
-    // =========================================
-    // RESPONSE STRUCTURE
-    // =========================================
 
     @Then("Response body should contain carts array")
     public void validateCartsArray() {
