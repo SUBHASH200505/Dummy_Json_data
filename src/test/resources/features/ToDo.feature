@@ -1,8 +1,6 @@
 Feature: Todos API Automation
 
-# =========================================
-# POST
-# =========================================
+
 
 Scenario Outline: Validate POST Todos API
   Given I read todos test data "<TestCaseID>"

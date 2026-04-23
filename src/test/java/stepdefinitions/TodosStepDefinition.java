@@ -63,9 +63,7 @@ public class TodosStepDefinition {
         Assert.assertEquals(actual, expected, "Status code mismatch");
     }
 
-    // =========================================
-    // INLINE REQUESTS
-    // =========================================
+  
 
     @Given("I set todos request {string} {string}")
     public void setTodosRequest(String reqMethod, String reqEndpoint) {
