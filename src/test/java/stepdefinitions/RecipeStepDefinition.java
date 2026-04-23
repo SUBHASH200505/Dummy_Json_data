@@ -1,157 +1,120 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.*;
+import io.cucumber.datatable.DataTable;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-import utils.ExcelUtil;
-import utils.ApiUtil;
+import Utils.*;
 
 import java.util.Map;
 
 public class RecipeStepDefinition {
 
     String testCaseID;
-
     Map<String, String> testData;
-
     Response response;
+
+    String endpoint;
+
+    // =========================================
+    // NORMAL / OUTLINE STEPS
+    // =========================================
+
+    @Given("I set endpoint {string}")
+    public void setEndpoint(String ep) {
+
+        RestAssured.baseURI = "https://dummyjson.com";
+        endpoint = ep;
+    }
+
+    @When("I send GET request")
+    public void sendGetRequest() {
+
+        response = ApiUtil.send("GET", endpoint, "", "");
+    }
+
+    @Then("Response status code should be {int}")
+    public void validateStatus(int status) {
+
+        int actual = response.getStatusCode();
+
+        if (actual != status) {
+            throw new AssertionError(
+                    "Expected: " + status + " but got: " + actual);
+        }
+    }
+
+    // =========================================
+    // DATA TABLE POST
+    // =========================================
+
+    @When("I send POST request with body:")
+    public void sendPostRequest(DataTable table) {
+
+        Map<String, String> map = table.asMaps().get(0);
+
+        String jsonBody = "{"
+                + "\"name\":\"" + map.get("name") + "\","
+                + "\"ingredients\":\"" + map.get("ingredients") + "\","
+                + "\"instructions\":\"" + map.get("instructions") + "\""
+                + "}";
+
+        response = ApiUtil.send("POST", endpoint, jsonBody, "");
+    }
+
+    // =========================================
+    // EXCEL STEPS
+    // =========================================
 
     @Given("I read test data {string}")
     public void read_test_data(String id) {
 
+        RestAssured.baseURI = "https://dummyjson.com";
+
         testCaseID = id;
 
-        testData =
-                ExcelUtil.getData(testCaseID);
+        testData = ExcelUtil.getData(testCaseID);
 
         if (testData == null || testData.isEmpty()) {
-
             throw new RuntimeException(
-                    "Test data NOT found for: "
-                            + testCaseID);
-
+                    "Test data NOT found for: " + testCaseID);
         }
-
-        System.out.println("=================================");
-
-        System.out.println(
-                "Running TestCase: "
-                        + testCaseID);
-
     }
 
     @Given("I validate precondition")
     public void validate_precondition() {
 
-        if (testData == null ||
-                testData.isEmpty()) {
-
+        if (testData == null) {
             throw new RuntimeException(
-                    "Precondition Failed: "
-                            + testCaseID);
-
+                    "Precondition Failed for: " + testCaseID);
         }
-
     }
 
     @When("I perform API request")
     public void perform_api_request() {
 
-        try {
+        String method = testData.getOrDefault("method", "GET");
+        String ep = testData.get("endpoint");
+        String body = testData.getOrDefault("testdata", "");
+        String token = testData.getOrDefault("token", "");
 
-            String method =
-                    testData.get("method");
-
-            String endpoint =
-                    testData.get("endpoint");
-
-            String body =
-                    testData.get("testdata");
-
-            System.out.println("Method: " + method);
-
-            System.out.println("Endpoint: " + endpoint);
-
-            System.out.println("Body: " + body);
-
-            response =
-                    ApiUtil.sendRequest(
-                            method,
-                            endpoint,
-                            body);
-
-        }
-
-        catch (Exception e) {
-
-            System.out.println(
-                    "API FAILED for: "
-                            + testCaseID);
-
-            e.printStackTrace();
-
-            response = null;
-
-        }
-
+        response = ApiUtil.send(method, ep, body, token);
     }
 
     @Then("I validate expected result")
     public void validate_expected_result() {
 
-        if (response == null) {
+        int expected =
+                Integer.parseInt(testData.get("expectedstatus"));
 
-            throw new RuntimeException(
-                    "Response is NULL for: "
-                            + testCaseID
-                            + " (API failed)"
-            );
+        int actual = response.getStatusCode();
 
-        }
-
-        String expectedStatusStr =
-                testData.get("expectedstatus");
-
-        if (expectedStatusStr == null ||
-                expectedStatusStr.trim().isEmpty()) {
-
-            throw new RuntimeException(
-                    "ExpectedStatus missing for: "
-                            + testCaseID);
-        }
-
-        int expectedStatus =
-                (int) Double.parseDouble(
-                        expectedStatusStr.trim());
-
-        int actualStatus =
-                response.getStatusCode();
-
-        System.out.println(
-                "Expected Status: "
-                        + expectedStatus);
-
-        System.out.println(
-                "Actual Status: "
-                        + actualStatus);
-
-        if (actualStatus != expectedStatus) {
-
+        if (actual != expected) {
             throw new AssertionError(
-                    "FAILED TestCase: "
-                            + testCaseID
-                            + " | Expected: "
-                            + expectedStatus
-                            + " | Actual: "
-                            + actualStatus
-            );
-
+                    "FAILED " + testCaseID +
+                            " | Expected: " + expected +
+                            " | Actual: " + actual);
         }
-
-        System.out.println(
-                "PASSED TestCase: "
-                        + testCaseID);
-
     }
-
 }
