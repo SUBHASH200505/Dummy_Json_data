@@ -19,9 +19,6 @@ Examples:
   | TC_Todos_01_05 |
 
 
-# =========================================
-# GET
-# =========================================
 
 Scenario Outline: Validate GET Todos APIs
   Given I set todos request "<method>" "<endpoint>"

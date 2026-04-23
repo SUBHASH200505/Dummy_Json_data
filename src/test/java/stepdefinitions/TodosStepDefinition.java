@@ -20,9 +20,6 @@ public class TodosStepDefinition {
     String body;
     String token = null;
 
-    // =========================================
-    // EXCEL BASED
-    // =========================================
 
     @Given("I read todos test data {string}")
     public void readTodosData(String testCaseID) {
