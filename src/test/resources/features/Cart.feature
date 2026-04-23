@@ -71,7 +71,6 @@ Scenario: Update Cart with Invalid Data
 
 
 
-
 Scenario Outline: Delete Cart API
   Given I set carts request "DELETE" "/carts/<id>"
   When I send carts request

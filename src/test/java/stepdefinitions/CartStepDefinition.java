@@ -139,7 +139,6 @@ public class CartStepDefinition {
     }
     
 
-
     @Then("Response body should contain carts array")
     public void validateCartsArray() {
 
