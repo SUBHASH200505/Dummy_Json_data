@@ -20,9 +20,7 @@ public class CartStepDefinition {
     String endpoint;
     String token;
 
-    // =========================================
-    // EXCEL BASED STEPS
-    // =========================================
+  
 
     @Given("I read carts test data {string}")
     public void readData(String testCaseID) {
@@ -66,9 +64,7 @@ public class CartStepDefinition {
         System.out.println("✔ Excel Test Passed");
     }
 
-    // =========================================
-    // INLINE REQUESTS
-    // =========================================
+    
 
     @Given("I set carts request {string} {string}")
     public void setRequest(String m, String e) {
@@ -92,9 +88,7 @@ public class CartStepDefinition {
         System.out.println("✔ Inline Test Passed");
     }
 
-    // =========================================
-    // PUT (DATA TABLE) — FIXED
-    // =========================================
+  
 
     @When("I send carts PUT request with body:")
     public void sendPutRequest(DataTable dataTable) {
@@ -127,9 +121,7 @@ public class CartStepDefinition {
         System.out.println("PUT RESPONSE: " + response.asString());
     }
 
-    // =========================================
-    // RESPONSE VALIDATION (MODULE-SPECIFIC)
-    // =========================================
+   
 
     @Then("Carts response should contain {string}")
     public void validateCartsResponse(String text) {

@@ -1,8 +1,6 @@
 Feature: Carts API Automation
 
-# =========================================
-# POST → ADD CART (SCENARIO OUTLINE)
-# =========================================
+
 
 Scenario Outline: Validate POST Carts API
   Given I read carts test data "<TestCaseID>"
@@ -18,9 +16,7 @@ Examples:
   | TC_Carts_01_04 |
 
 
-# =========================================
-# GET → CARTS (SCENARIO OUTLINE)
-# =========================================
+
 
 Scenario Outline: Validate GET Carts APIs
   Given I set carts request "<method>" "<endpoint>"
@@ -35,9 +31,7 @@ Examples:
   | GET    | /carts?limit=-5  | 404    |
 
 
-# =========================================
-# GET RESPONSE STRUCTURE
-# =========================================
+
 
 Scenario: Validate Carts Response Structure
   Given I set carts request "GET" "/carts"
@@ -46,9 +40,7 @@ Scenario: Validate Carts Response Structure
   And Each cart should have "id", "products", "total", "userId"
 
 
-# =========================================
-# PUT → UPDATE CART (DATA TABLE)
-# =========================================
+
 
 Scenario: Update Cart using Data Table
   Given I set carts request "PUT" "/carts/1"
@@ -58,9 +50,7 @@ Scenario: Update Cart using Data Table
   Then I validate carts status "200"
 
 
-# =========================================
-# NEGATIVE SCENARIO
-# =========================================
+
 
 Scenario: Update Cart with Invalid Data
   Given I set carts request "PUT" "/carts/1"
@@ -84,9 +74,7 @@ Examples:
   | abc   | 404    |
 
 
-# =========================================
-# DELETE RESPONSE VALIDATION
-# =========================================
+
 
 Scenario: Validate Delete Cart Response Fields
   Given I set carts request "DELETE" "/carts/1"
