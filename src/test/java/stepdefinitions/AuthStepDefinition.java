@@ -17,8 +17,10 @@ public class AuthStepDefinition {
     String endpoint;
     String body;
 
+    static String token; // shared token
+
     // =========================================
-    // EXCEL BASED (ONLY VALID LOGIN CASES)
+    // EXCEL BASED LOGIN
     // =========================================
 
     @Given("I read auth test data {string}")
@@ -46,6 +48,12 @@ public class AuthStepDefinition {
 
         response = ApiUtil.send(method, endpoint, body, null);
 
+        // Extract token only for login
+        if (endpoint.contains("/auth/login") && response.getStatusCode() == 200) {
+            token = response.jsonPath().getString("accessToken");
+            System.out.println("TOKEN: " + token);
+        }
+
         System.out.println("RESPONSE: " + response.asString());
     }
 
@@ -59,18 +67,23 @@ public class AuthStepDefinition {
     }
 
     // =========================================
-    // INLINE STEPS
+    // INLINE REQUESTS
     // =========================================
 
     @Given("I set auth request {string} {string}")
     public void setAuthRequest(String m, String e) {
 
-        method = m;
+        method = m.toUpperCase();
         endpoint = ConfiReader.get("base.url") + e;
 
-        // Only for login API → set body
-        if (m.equalsIgnoreCase("POST") && e.contains("/auth/login")) {
-            body = "{\"username\":\"emilys\",\"password\":\"emilyspass\"}";
+        // 🔥 IMPORTANT: Reset token for negative scenario
+        if (endpoint.contains("/auth/me")) {
+            token = null;
+        }
+
+        // Login body
+        if (method.equals("POST") && e.contains("/auth/login")) {
+            body = "{ \"username\":\"emilys\", \"password\":\"emilyspass\" }";
         } else {
             body = null;
         }
@@ -79,8 +92,13 @@ public class AuthStepDefinition {
     @When("I send auth request")
     public void sendAuthRequest() {
 
-        // No token → ensures /auth/me returns 401
-        response = ApiUtil.send(method, endpoint, body, null);
+        // 🔥 If token exists → use it, else send null
+        response = ApiUtil.send(method, endpoint, body, token);
+
+        // Extract token for login
+        if (endpoint.contains("/auth/login") && response.getStatusCode() == 200) {
+            token = response.jsonPath().getString("accessToken");
+        }
     }
 
     @Then("I validate auth status {string}")
@@ -91,6 +109,8 @@ public class AuthStepDefinition {
 
         Assert.assertEquals(actual, expected);
     }
+
+ 
 
     @Then("Response body should contain {string}")
     public void validateResponseContains(String text) {
