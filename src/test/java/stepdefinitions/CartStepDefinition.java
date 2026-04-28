@@ -61,7 +61,7 @@ public class CartStepDefinition {
         int actual = response.getStatusCode();
 
         Assert.assertEquals(actual, expected);
-        System.out.println("✔ Excel Test Passed");
+        System.out.println("Excel Test Passed");
     }
 
     
@@ -85,7 +85,7 @@ public class CartStepDefinition {
         int actual = response.getStatusCode();
 
         Assert.assertEquals(actual, expected);
-        System.out.println("✔ Inline Test Passed");
+        System.out.println("Inline Test Passed");
     }
 
   
