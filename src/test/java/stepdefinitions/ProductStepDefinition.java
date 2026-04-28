@@ -19,9 +19,7 @@ public class ProductStepDefinition {
     String method;
     String endpoint;
 
-    // =========================================
-    // EXCEL STEPS
-    // =========================================
+    
 
     @Given("I read products test data {string}")
     public void readProductsData(String testCaseID) {
@@ -61,9 +59,7 @@ public class ProductStepDefinition {
         Assert.assertEquals(actual, expected);
     }
 
-    // =========================================
-    // INLINE REQUESTS
-    // =========================================
+  
 
     @Given("I set products request {string} {string}")
     public void setProductsRequest(String m, String e) {
@@ -87,9 +83,7 @@ public class ProductStepDefinition {
         Assert.assertEquals(actual, expected);
     }
 
-    // =========================================
-    // RESPONSE STRUCTURE
-    // =========================================
+   
 
     @Then("Response body should contain products array")
     public void validateProductsArray() {
@@ -112,9 +106,7 @@ public class ProductStepDefinition {
         Assert.assertNotNull(json.get("products[0]." + f4));
     }
 
-    // =========================================
-    // PUT (FIXED JSON + MATCHED STEP)
-    // =========================================
+    
 
     @When("I send products PUT request with body:")
     public void sendProductsPutRequest(DataTable table) {
@@ -139,9 +131,7 @@ public class ProductStepDefinition {
         System.out.println("PUT RESPONSE: " + response.asString());
     }
 
-    // =========================================
-    // PATCH
-    // =========================================
+    
 
     @When("I send products PATCH request with body {string}")
     public void sendProductsPatchRequest(String text) {
@@ -153,9 +143,7 @@ public class ProductStepDefinition {
         System.out.println("PATCH RESPONSE: " + response.asString());
     }
 
-    // =========================================
-    // UNIQUE RESPONSE VALIDATION
-    // =========================================
+   
 
     @Then("Products response should contain {string}")
     public void validateProductsResponseContains(String text) {

@@ -1,8 +1,8 @@
 Feature: Products API Automation
 
-# =========================================
+
 # POST → ADD PRODUCT
-# =========================================
+
 
 Scenario Outline: Validate POST Products API
   Given I read products test data "<TestCaseID>"
@@ -14,13 +14,13 @@ Examples:
   | TestCaseID        |
   | TC_Products_01_01 |
   | TC_Products_01_02 |
-  | TC_Products_01_03 |   # ❌ should fail (expected 400 in Excel)
-  | TC_Products_01_04 |   # ❌ should fail (expected 400 in Excel)
+  | TC_Products_01_03 |   
+  | TC_Products_01_04 |   
 
 
-# =========================================
+
 # GET → PRODUCTS
-# =========================================
+
 
 Scenario Outline: Validate GET Products APIs
   Given I set products request "<method>" "<endpoint>"
@@ -33,9 +33,9 @@ Examples:
   | GET    | /productss  | 404    |
 
 
-# =========================================
+
 # GET → SINGLE PRODUCT
-# =========================================
+
 
 Scenario Outline: Validate GET Single Product APIs
   Given I set products request "<method>" "<endpoint>"
@@ -48,9 +48,9 @@ Examples:
   | GET    | /products/99999 | 404    |
 
 
-# =========================================
+
 # GET RESPONSE STRUCTURE
-# =========================================
+
 
 Scenario: Validate Products Response Structure
   Given I set products request "GET" "/products"
@@ -59,21 +59,21 @@ Scenario: Validate Products Response Structure
   And Each product should have "id", "title", "price", "category"
 
 
-# =========================================
-# PUT → UPDATE PRODUCT (❌ INTENTIONAL FAIL)
-# =========================================
+
+# PUT → UPDATE PRODUCT 
+
 
 Scenario: Update Product using Data Table
   Given I set products request "PUT" "/products/1"
   When I send products PUT request with body:
     | title            |
     | iPhone Galaxy +1 |
-  Then I validate products status "400"   # ❌ will fail (actual 200)
+  Then I validate products status "400"   
 
 
-# =========================================
+
 # PATCH → PARTIAL UPDATE
-# =========================================
+
 
 Scenario: Partial Update Product
   Given I set products request "PATCH" "/products/1"
@@ -81,9 +81,9 @@ Scenario: Partial Update Product
   Then I validate products status "200"
 
 
-# =========================================
+
 # NEGATIVE SCENARIO
-# =========================================
+
 
 Scenario: Update Product with Invalid ID
   Given I set products request "PUT" "/products/99999"
@@ -93,9 +93,9 @@ Scenario: Update Product with Invalid ID
   Then I validate products status "404"
 
 
-# =========================================
+
 # DELETE → SCENARIO OUTLINE
-# =========================================
+
 
 Scenario Outline: Delete Product API
   Given I set products request "DELETE" "/products/<id>"
@@ -108,9 +108,9 @@ Examples:
   | 99999 | 404    |
 
 
-# =========================================
+
 # DELETE RESPONSE VALIDATION
-# =========================================
+
 
 Scenario: Validate Delete Response Fields
   Given I set products request "DELETE" "/products/1"
