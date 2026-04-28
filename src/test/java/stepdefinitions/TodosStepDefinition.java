@@ -88,9 +88,7 @@ public class TodosStepDefinition {
         Assert.assertEquals(actual, expected);
     }
 
-    // =========================================
-    // PUT (DATA TABLE)
-    // =========================================
+
 
     @When("I send todos PUT request with body:")
     public void sendPutRequest(DataTable table) {
@@ -106,9 +104,6 @@ public class TodosStepDefinition {
         response = ApiUtil.send("PUT", endpoint, requestBody, token);
     }
 
-    // =========================================
-    // PATCH
-    // =========================================
 
     @When("I send todos PATCH request with body {string}")
     public void sendPatchRequest(String text) {
@@ -118,9 +113,7 @@ public class TodosStepDefinition {
         response = ApiUtil.send("PATCH", endpoint, requestBody, token);
     }
 
-    // =========================================
-    // RESPONSE VALIDATION (UNIQUE)
-    // =========================================
+
 
     @Then("Todos response should contain {string}")
     public void validateResponseContains(String text) {
