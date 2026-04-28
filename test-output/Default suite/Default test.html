@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>12/3/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Apr 28 08:19:41 IST 2026</td>
+<td>Started on:</td><td>Tue Apr 28 11:35:01 IST 2026</td>
 </tr>
-<tr><td>Total time:</td><td>11 seconds (11366 ms)</td>
+<tr><td>Total time:</td><td>10 seconds (10663 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,6 +75,32 @@ function toggleAllBoxes() {
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
+<tr>
+<td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate POST Products API", "Products API Automation"</td>
+<td><div><pre>java.lang.AssertionError: expected [400] but found [201]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at org.testng.Assert.assertEquals(Assert.java:1429)
+	at stepdefinitions.ProductStepDefinition.validateProductsResult(ProductStepDefinition.java:59)
+	at ✽.I validate products expected result(file:///C:/Users/priya/git/Dummy_Json_data/src/test/resources/features/Product.feature:11)
+</pre></div><a href='#' onClick='toggleBox("stack-trace186456575", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace186456575'><pre>java.lang.AssertionError: expected [400] but found [201]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at org.testng.Assert.assertEquals(Assert.java:1429)
+	at stepdefinitions.ProductStepDefinition.validateProductsResult(ProductStepDefinition.java:59)
+	at ✽.I validate products expected result(file:///C:/Users/priya/git/Dummy_Json_data/src/test/resources/features/Product.feature:11)
+</pre></div></td>
+<td>1</td>
+<td>Runner.TestRunner@3b69e7d1</td></tr>
 <tr>
 <td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Update Product using Data Table", "Products API Automation"</td>
 <td><div><pre>java.lang.AssertionError: expected [400] but found [200]
@@ -113,34 +139,8 @@ function toggleAllBoxes() {
 	at org.testng.Assert.assertEquals(Assert.java:1429)
 	at stepdefinitions.ProductStepDefinition.validateProductsResult(ProductStepDefinition.java:59)
 	at ✽.I validate products expected result(file:///C:/Users/priya/git/Dummy_Json_data/src/test/resources/features/Product.feature:11)
-</pre></div><a href='#' onClick='toggleBox("stack-trace100782741", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace100782741'><pre>java.lang.AssertionError: expected [400] but found [201]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:1419)
-	at org.testng.Assert.assertEquals(Assert.java:1383)
-	at org.testng.Assert.assertEquals(Assert.java:1429)
-	at stepdefinitions.ProductStepDefinition.validateProductsResult(ProductStepDefinition.java:59)
-	at ✽.I validate products expected result(file:///C:/Users/priya/git/Dummy_Json_data/src/test/resources/features/Product.feature:11)
-</pre></div></td>
-<td>0</td>
-<td>Runner.TestRunner@3b69e7d1</td></tr>
-<tr>
-<td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate POST Products API", "Products API Automation"</td>
-<td><div><pre>java.lang.AssertionError: expected [400] but found [201]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:1419)
-	at org.testng.Assert.assertEquals(Assert.java:1383)
-	at org.testng.Assert.assertEquals(Assert.java:1429)
-	at stepdefinitions.ProductStepDefinition.validateProductsResult(ProductStepDefinition.java:59)
-	at ✽.I validate products expected result(file:///C:/Users/priya/git/Dummy_Json_data/src/test/resources/features/Product.feature:11)
-</pre></div><a href='#' onClick='toggleBox("stack-trace398802427", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace398802427'><pre>java.lang.AssertionError: expected [400] but found [201]
+</pre></div><a href='#' onClick='toggleBox("stack-trace444901554", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace444901554'><pre>java.lang.AssertionError: expected [400] but found [201]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
@@ -168,12 +168,17 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>Runner.TestRunner@3b69e7d1</td></tr>
 <tr>
-<td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate Delete Response Fields", "Products API Automation"</td>
+<td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate POST Products API", "Products API Automation"</td>
+<td></td>
+<td>2</td>
+<td>Runner.TestRunner@3b69e7d1</td></tr>
+<tr>
+<td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate GET Products APIs", "Products API Automation"</td>
 <td></td>
 <td>0</td>
 <td>Runner.TestRunner@3b69e7d1</td></tr>
 <tr>
-<td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate GET Single Product APIs", "Products API Automation"</td>
+<td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate Delete Response Fields", "Products API Automation"</td>
 <td></td>
 <td>0</td>
 <td>Runner.TestRunner@3b69e7d1</td></tr>
@@ -185,7 +190,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate Products Response Structure", "Products API Automation"</td>
 <td></td>
-<td>1</td>
+<td>2</td>
 <td>Runner.TestRunner@3b69e7d1</td></tr>
 <tr>
 <td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Partial Update Product", "Products API Automation"</td>
@@ -198,17 +203,12 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>Runner.TestRunner@3b69e7d1</td></tr>
 <tr>
-<td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate POST Products API", "Products API Automation"</td>
-<td></td>
-<td>3</td>
-<td>Runner.TestRunner@3b69e7d1</td></tr>
-<tr>
 <td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate GET Products APIs", "Products API Automation"</td>
 <td></td>
 <td>0</td>
 <td>Runner.TestRunner@3b69e7d1</td></tr>
 <tr>
-<td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate GET Products APIs", "Products API Automation"</td>
+<td title='Runner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: Runner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Validate GET Single Product APIs", "Products API Automation"</td>
 <td></td>
 <td>0</td>
 <td>Runner.TestRunner@3b69e7d1</td></tr>
