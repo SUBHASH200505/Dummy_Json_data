@@ -31,9 +31,6 @@ Examples:
   | GET    | /todos/abc  | 404    |
 
 
-# =========================================
-# RESPONSE STRUCTURE
-# =========================================
 
 Scenario: Validate Todos Response Structure
   Given I set todos request "GET" "/todos"
@@ -42,9 +39,6 @@ Scenario: Validate Todos Response Structure
   And Each todo should have "id", "todo", "completed", "userId"
 
 
-# =========================================
-# PUT
-# =========================================
 
 Scenario: Update Todo using Data Table
   Given I set todos request "PUT" "/todos/1"
@@ -54,21 +48,12 @@ Scenario: Update Todo using Data Table
   Then I validate todos status "200"
   And Todos response should contain "Updated task value"
 
-
-# =========================================
-# PATCH
-# =========================================
-
 Scenario: Partial Update Todo
   Given I set todos request "PATCH" "/todos/1"
   When I send todos PATCH request with body "Partially updated task"
   Then I validate todos status "200"
   And Todos response should contain "Partially updated task"
 
-
-# =========================================
-# NEGATIVE
-# =========================================
 
 Scenario: Update Todo with Invalid ID
   Given I set todos request "PUT" "/todos/9999"
@@ -78,9 +63,6 @@ Scenario: Update Todo with Invalid ID
   Then I validate todos status "404"
 
 
-# =========================================
-# DELETE
-# =========================================
 
 Scenario Outline: Delete Todo API
   Given I set todos request "DELETE" "/todos/<id>"
@@ -95,9 +77,6 @@ Examples:
   | abc  | 404    |
 
 
-# =========================================
-# DELETE VALIDATION
-# =========================================
 
 Scenario: Validate Delete Response Fields
   Given I set todos request "DELETE" "/todos/1"
