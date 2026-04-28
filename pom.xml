@@ -3,7 +3,7 @@
   <groupId>Dummy_Json_data</groupId>
   <artifactId>Dummy_Json_data</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <!-- ================= PROPERTIES ================= -->
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
@@ -15,10 +15,8 @@
         <poi.version>5.2.3</poi.version>
     </properties>
 
-    <!-- ================= DEPENDENCIES ================= -->
     <dependencies>
 
-        <!-- Cucumber -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -31,7 +29,6 @@
             <version>${cucumber.version}</version>
         </dependency>
 
-        <!-- TestNG -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -39,21 +36,18 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- RestAssured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>${restassured.version}</version>
         </dependency>
 
-        <!-- JSON Path -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-path</artifactId>
             <version>${restassured.version}</version>
         </dependency>
 
-        <!-- Apache POI (Excel) -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
@@ -66,23 +60,18 @@
             <version>${poi.version}</version>
         </dependency>
 
-        <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.9</version>
         </dependency>
 
-        <!-- ================= EXTENT REPORTS ================= -->
-
-        <!-- Extent Core -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>5.0.9</version>
         </dependency>
 
-        <!-- Extent Adapter for Cucumber -->
         <dependency>
             <groupId>tech.grasshopper</groupId>
             <artifactId>extentreports-cucumber7-adapter</artifactId>
@@ -91,18 +80,17 @@
 
     </dependencies>
 
-    <!-- ================= BUILD ================= -->
     <build>
         <plugins>
 
-            <!-- Compiler -->
+           
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
             </plugin>
 
-            <!-- Surefire (Run TestNG + Cucumber) -->
+         
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

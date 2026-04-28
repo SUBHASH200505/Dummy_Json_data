@@ -17,9 +17,7 @@ public class RecipeStepDefinition {
 
     String endpoint;
 
-    // =========================================
-    // NORMAL / OUTLINE STEPS
-    // =========================================
+
 
     @Given("I set endpoint {string}")
     public void setEndpoint(String ep) {
@@ -45,9 +43,7 @@ public class RecipeStepDefinition {
         }
     }
 
-    // =========================================
-    // DATA TABLE POST
-    // =========================================
+
 
     @When("I send POST request with body:")
     public void sendPostRequest(DataTable table) {
@@ -63,9 +59,7 @@ public class RecipeStepDefinition {
         response = ApiUtil.send("POST", endpoint, jsonBody, "");
     }
 
-    // =========================================
-    // EXCEL STEPS
-    // =========================================
+
 
     @Given("I read test data {string}")
     public void read_test_data(String id) {

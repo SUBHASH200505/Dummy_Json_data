@@ -14,12 +14,12 @@ public class ApiUtil {
         RequestSpecification request = given()
                 .header("Content-Type", "application/json");
 
-        // Token (optional)
+       
         if (token != null && !token.isEmpty()) {
             request.header("Authorization", "Bearer " + token);
         }
 
-        // Body (optional)
+   
         if (body != null && !body.trim().isEmpty()) {
             request.body(body);
         }
