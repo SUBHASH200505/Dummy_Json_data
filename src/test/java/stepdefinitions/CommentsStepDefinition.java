@@ -21,9 +21,6 @@ public class CommentsStepDefinition {
     String body;
     String token = null;
 
-    // =========================================
-    // EXCEL BASED
-    // =========================================
 
     @Given("I read comments test data {string}")
     public void readCommentsData(String testCaseID) {
@@ -67,10 +64,6 @@ public class CommentsStepDefinition {
         Assert.assertEquals(actual, expected, "Status code mismatch");
     }
 
-    // =========================================
-    // INLINE REQUESTS
-    // =========================================
-
     @Given("I set comments request {string} {string}")
     public void setCommentsRequest(String reqMethod, String reqEndpoint) {
 
@@ -94,9 +87,6 @@ public class CommentsStepDefinition {
         Assert.assertEquals(actual, expected, "Status mismatch");
     }
 
-    // =========================================
-    // PUT (DATA TABLE)
-    // =========================================
 
     @When("I send comments PUT request with body:")
     public void sendPutRequest(DataTable table) {
@@ -112,9 +102,6 @@ public class CommentsStepDefinition {
         response = ApiUtil.send("PUT", endpoint, requestBody, token);
     }
 
-    // =========================================
-    // PATCH
-    // =========================================
 
     @When("I send comments PATCH request with body {string}")
     public void sendPatchRequest(String bodyText) {
@@ -124,20 +111,12 @@ public class CommentsStepDefinition {
         response = ApiUtil.send("PATCH", endpoint, requestBody, token);
     }
 
-    // =========================================
-    // RESPONSE VALIDATION (UNIQUE)
-    // =========================================
-
     @Then("Comments response should contain {string}")
     public void validateResponseContains(String text) {
 
         Assert.assertTrue(response.asString().contains(text),
                 "Response does not contain expected text: " + text);
     }
-
-    // =========================================
-    // RESPONSE STRUCTURE
-    // =========================================
 
     @Then("Response body should contain comments array")
     public void validateCommentsArray() {
