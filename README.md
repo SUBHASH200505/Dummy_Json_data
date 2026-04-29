@@ -72,10 +72,10 @@ src/test/resources
 
 This framework follows:
 
-✔ Data-Driven Testing (Excel)
-✔ BDD Approach (Cucumber)
-✔ Modular Design (Each API module separated)
-✔ Reusable Utilities
+ Data-Driven Testing (Excel)
+ BDD Approach (Cucumber)
+ Modular Design (Each API module separated)
+ Reusable Utilities
 
 ---
 
