@@ -1,4 +1,4 @@
-# 🚀 Dummy JSON API Automation Framework
+#  Dummy JSON API Automation Framework
 
 This is a **modular, data-driven API automation framework** built using **Java, RestAssured, Cucumber, TestNG, and Maven**.
 
@@ -6,20 +6,20 @@ The framework is designed to automate multiple API modules with reusable compone
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 This framework supports automation for multiple API modules:
 
-* 🔐 Authentication
-* 🛒 Cart
-* 💬 Comments
-* 📦 Products
-* 🍽 Recipes
-* ✅ Todos
+*  Authentication
+*  Cart
+*  Comments
+*  Products
+*  Recipes
+*  Todos
 
 ---
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 * Java
 * RestAssured
@@ -30,7 +30,7 @@ This framework supports automation for multiple API modules:
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 src/main/java
@@ -68,7 +68,7 @@ src/test/resources
 
 ---
 
-## ⚙️ Framework Design
+##  Framework Design
 
 This framework follows:
 
@@ -79,7 +79,7 @@ This framework follows:
 
 ---
 
-## 🔄 Execution Flow
+##  Execution Flow
 
 ```text
 Feature File → Step Definition → Excel Data → API Call → Validation
@@ -87,7 +87,7 @@ Feature File → Step Definition → Excel Data → API Call → Validation
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 ### Using Maven
 
@@ -102,14 +102,14 @@ mvn clean test
 
 ---
 
-## 📊 Reporting
+##  Reporting
 
 * Uses **Extent Reports**
 * Configured via `extent.properties`
 
 ---
 
-## 🌿 Git Workflow
+##  Git Workflow
 
 * `main` → stable code
 * Feature branches → module-based development
@@ -122,13 +122,13 @@ Example:
 
 ---
 
-## 🔧 Jenkins Integration
+##  Jenkins Integration
 
 Each module can include its own `Jenkinsfile` for CI/CD execution.
 
 ---
 
-## 👥 Team Collaboration
+##  Team Collaboration
 
 * Common utilities shared across modules
 * Each module handled by different team members
@@ -136,16 +136,16 @@ Each module can include its own `Jenkinsfile` for CI/CD execution.
 
 ---
 
-## 📌 Best Practices
+##  Best Practices
 
-✔ Reusable code
-✔ Clean modular structure
-✔ Excel-driven testing
-✔ Separate feature files per module
+ Reusable code
+ Clean modular structure
+ Excel-driven testing
+ Separate feature files per module
 
 ---
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 * Parallel execution
 * Advanced reporting
@@ -154,15 +154,15 @@ Each module can include its own `Jenkinsfile` for CI/CD execution.
 
 ---
 
-## 🧠 Summary
+##  Summary
 
 This framework is designed to be:
 
-✔ Scalable
-✔ Maintainable
-✔ Reusable
-✔ Industry-ready
+ Scalable
+ Maintainable
+ Reusable
+ Industry-ready
 
 ---
 
-⭐ A complete API automation solution using modern tools and best practices.
+ A complete API automation solution using modern tools and best practices.
